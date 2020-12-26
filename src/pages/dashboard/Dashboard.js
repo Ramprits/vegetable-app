@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Grid,
-  LinearProgress,
-  Select,
-  OutlinedInput,
-  MenuItem,
-} from "@material-ui/core";
+import { Grid, LinearProgress } from "@material-ui/core";
 import { useTheme } from "@material-ui/styles";
 import {
   ResponsiveContainer,
@@ -41,12 +35,12 @@ const PieChartData = [
   { name: "Group D", value: 200, color: "success" },
 ];
 
-export default function Dashboard(props) {
+export default function Dashboard() {
   var classes = useStyles();
   var theme = useTheme();
 
   // local
-  var [mainChartState, setMainChartState] = useState("monthly");
+  var [] = useState("monthly");
 
   return (
     <>
@@ -276,7 +270,7 @@ export default function Dashboard(props) {
               </Grid>
               <Grid item xs={6}>
                 <div className={classes.pieChartLegendWrapper}>
-                  {PieChartData.map(({ name, value, color }, index) => (
+                  {PieChartData.map(({ name, value, color }) => (
                     <div key={color} className={classes.legendItemContainer}>
                       <Dot color={color} />
                       <Typography style={{ whiteSpace: "nowrap" }}>
@@ -399,7 +393,7 @@ function getRandomData(length, min, max, multiplier = 10, maxDiff = 10) {
   var array = new Array(length).fill();
   let lastValue;
 
-  return array.map((item, index) => {
+  return array.map(() => {
     let randomValue = Math.floor(Math.random() * multiplier + 1);
 
     while (
